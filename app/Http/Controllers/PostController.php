@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
+use function Termwind\render;
+
 class PostController extends Controller
 {
     /**
@@ -52,9 +54,9 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Post $post)
+    public function show(string $username, Post $post)
     {
-        //
+        return view('post.show', ['post' => $post]);
     }
 
     /**
