@@ -13,9 +13,29 @@
         @csrf
     </form>
 
-    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6">
+    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6" enctype="multipart/form-data">
         @csrf
         @method('patch')
+
+        @if ($user->image)
+            <div>
+                <img src="{{Storage::url($user->image)}}" alt="{{$user->name}}" class="rounded-full h-20 w-20">
+            </div>
+        @endif
+
+        {{-- Image --}}
+        <div>
+            <x-input-label for="image" :value="__('Avatar')" />
+            <x-text-input id="file_input" type="file" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" name="image" :value="old('image', $user->image)" autofocus />
+            <x-input-error :messages="$errors->get('image')" class="mt-2" />
+            <p class="mt-1 text-sm text-gray-500 dark:text-gray-400" id="file_input_help">SVG, PNG, JPG or GIF (MAX. 800x400px, 2MB).</p>
+        </div>
+
+        <div>
+            <x-input-label for="username" :value="__('Username')" />
+            <x-text-input id="username" name="username" type="text" class="mt-1 block w-full" :value="old('username', $user->username)" required autofocus autocomplete="username" />
+            <x-input-error class="mt-2" :messages="$errors->get('username')" />
+        </div>
 
         <div>
             <x-input-label for="name" :value="__('Name')" />
@@ -45,6 +65,13 @@
                     @endif
                 </div>
             @endif
+        </div>
+
+         {{-- Content --}}
+        <div class="mt-4">
+            <x-input-label for="title" :value="__('Bio')" />
+            <x-text-inputarea id="bio" class="block mt-1 w-full"  name="bio" id="bio"  autofocus >{{old('bio', $user->bio)}}</x-text-inputarea>
+            <x-input-error :messages="$errors->get('bio')" class="mt-2" />
         </div>
 
         <div class="flex items-center gap-4">
