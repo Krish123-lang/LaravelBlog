@@ -19,8 +19,11 @@
 
         @if ($user->image)
             <div>
-                {{-- <img src="{{Storage::url($user->image)}}" alt="{{$user->name}}" class="rounded-full h-20 w-20"> --}}
                 <img src="{{$user->imageUrl()}}" alt="{{$user->name}}" class="rounded-full h-20 w-20">
+            </div>
+        @else
+            <div>
+                <img src="https://static.everypixel.com/ep-pixabay/0329/8099/0858/84037/3298099085884037069-head.png" alt="Dummy Avatar" class="rounded-full h-20 w-20">
             </div>
         @endif
 
