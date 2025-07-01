@@ -43,7 +43,7 @@
                         </span>
                     </div>
 
-                    <x-clap :post="$post" :count="$post->claps()->count()"/>
+                    {{-- <x-clap :post="$post" :count="$post->claps()->count()"/> --}}
 
                 </div>
             </div>
