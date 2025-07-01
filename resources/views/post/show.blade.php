@@ -23,7 +23,7 @@
 
                     {{-- <div class="mt-4"></div> --}}
 
-                    <x-clap />
+                    <x-clap :post="$post" />
 
                     <div class="mt-8">
                         <img src="{{$post->imageUrl()}}" alt="{{$post->title}}" class="w-full">
@@ -39,7 +39,7 @@
                         </span>
                     </div>
 
-                    <x-clap />
+                    <x-clap :post="$post" :count="$post->claps()->count()"/>
 
                 </div>
             </div>
