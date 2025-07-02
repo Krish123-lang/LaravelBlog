@@ -9,12 +9,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('@{user:username}', [PublicProfileController::class, 'show'])->name('profile.show');
 Route::get('/', [PostController::class, 'index'])->name('dashboard');
+Route::get('@{username}/{post:slug}', [PostController::class, 'show'])->name('post.show');
+Route::get('category/{category}', [PostController::class, 'category'])->name('post.byCategory');
 
 Route::middleware(['auth', 'verified'])->group(function(){
-    Route::get('category/{category}', [PostController::class, 'category'])->name('post.byCategory');
     Route::get('post/create', [PostController::class, 'create'])->name('post.create');
     Route::post('post', [PostController::class, 'store'])->name('post.store');
-    Route::get('@{username}/{post:slug}', [PostController::class, 'show'])->name('post.show');
     Route::post('follow/{user}', [FollowController::class, 'followUnfollow'])->name('follow');
     Route::post('claps/{post}', [ClapController::class, 'claps'])->name('claps');
 });

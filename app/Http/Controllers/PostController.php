@@ -9,8 +9,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
-use function Termwind\render;
-
 class PostController extends Controller
 {
     /**
@@ -18,7 +16,19 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::latest()->simplePaginate(10);
+        $user = auth()->user();
+        $query = Post::latest();
+
+        /* If you uncomment these codes, then you will see nothing in the home page unless you follow any user.
+        And If you follow the user then, you will start seeing only their post, not others whom you have not
+        followed. Uncomment it if you want */
+        
+        // if ($user) {
+        //     $ids = $user->following()->pluck('users.id');
+        //     $query->whereIn('user_id', $ids);
+        // }
+
+        $posts = $query->simplePaginate(10);
         return view('post.index', compact('posts'));
     }
 
@@ -54,7 +64,7 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Post $post)
+    public function show(string $username, Post $post)
     {
         return view('post.show', ['post' => $post]);
     }
