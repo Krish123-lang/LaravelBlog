@@ -17,8 +17,9 @@
         @csrf
         @method('patch')
 
+        {{-- @if ($user->getFirstMedia('avatar')) --}}
         {{-- @if ($user->image) --}}
-        @if ($user->getFirstMedia('avatar'))
+        @if ($user->imageUrl())
             <div>
                 {{-- <img src="{{$user->imageUrl()}}" alt="{{$user->name}}" class="rounded-full h-20 w-20"> --}}
                 <img src="{{ $user->imageUrl() }}?t={{ $user->updated_at->timestamp }}" alt="{{ $user->name }}" class="rounded-full h-20 w-20">
