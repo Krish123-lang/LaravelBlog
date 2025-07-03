@@ -27,9 +27,9 @@
 
                     @if ($post->user->id === Auth::id())
                         <div class="mt-8 py-4 border-t border-gray-200">
-                            <x-primary-button>
-                                Edit Post
-                            </x-primary-button>
+                                <x-primary-button  href="{{ route('post.edit', $post->slug) }}">
+                                    Edit Post
+                                </x-primary-button>
 
                             <form class="inline-block" action="{{ route('post.destroy', $post) }}" method="post"
                                 onsubmit="return confirm('Are you sure you want to delete this post?')">
