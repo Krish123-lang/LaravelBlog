@@ -101,4 +101,11 @@ class PostController extends Controller
             ->latest()->simplePaginate(5);
         return view('post.index', compact('posts'));
     }
+
+    public function myPosts()
+    {
+        $user = auth()->user();
+        $posts = $user->posts()->with(['user', 'media'])->withCount('claps')->latest()->simplePaginate(5);
+        return view('post.index', compact('posts'));
+    }
 }
