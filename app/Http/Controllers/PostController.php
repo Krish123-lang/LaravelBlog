@@ -17,7 +17,7 @@ class PostController extends Controller
     public function index()
     {
         $user = auth()->user();
-        $query = Post::latest();
+        $query = Post::with(['user', 'media'])->withCount('claps')->latest();
 
         /* If you uncomment these codes, then you will see nothing in the home page unless you follow any user.
         And If you follow the user then, you will start seeing only their post, not others whom you have not
@@ -96,7 +96,9 @@ class PostController extends Controller
 
     public function category(Category $category)
     {
-        $posts = $category->posts()->latest()->simplePaginate(5);
+        $posts = $category->posts()
+            ->with(['user', 'media'])->withCount('claps')
+            ->latest()->simplePaginate(5);
         return view('post.index', compact('posts'));
     }
 }
