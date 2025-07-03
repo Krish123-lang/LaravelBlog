@@ -15,6 +15,7 @@
     </div>
 
     <a href="{{ route('post.show', ['username'=>$post->user->username, 'post'=>$post->slug]) }}">
-        <img class="rounded-t-lg w-48 h-full max-h-64 object-cover" src="{{Storage::url($post->image)}}" alt="{{$post->title}}" />
+        {{-- <img class="rounded-t-lg w-48 h-full max-h-64 object-cover" src="{{Storage::url($post->image)}}" alt="{{$post->title}}" /> --}}
+        <img class="rounded-t-lg w-48 h-full max-h-64 object-cover" src="{{ $post->imageUrl() }}" alt="{{$post->title}}" />
     </a>
 </div>

@@ -22,7 +22,7 @@ class PostController extends Controller
         /* If you uncomment these codes, then you will see nothing in the home page unless you follow any user.
         And If you follow the user then, you will start seeing only their post, not others whom you have not
         followed. Uncomment it if you want */
-        
+
         // if ($user) {
         //     $ids = $user->following()->pluck('users.id');
         //     $query->whereIn('user_id', $ids);
@@ -50,14 +50,15 @@ class PostController extends Controller
         $data = $request->validated();
         // dd($data);
 
-        $image = $data['image'];
+        // $image = $data['image'];
         // unset($data['image']);
         $data['user_id'] = Auth::id();
         $data['slug'] = Str::slug($data['title']);
 
-        $imagePath = $image->store('posts/images', 'public');
-        $data['image'] = $imagePath;
-        Post::create($data);
+        // $imagePath = $image->store('posts/images', 'public');
+        // $data['image'] = $imagePath;
+        $post = Post::create($data);
+        $post->addMediaFromRequest('image')->toMediaCollection();
         return to_route('dashboard')->with('success', 'Post created successfully!');
     }
 
