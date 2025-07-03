@@ -14,6 +14,7 @@ Route::get('category/{category}', [PostController::class, 'category'])->name('po
 
 Route::middleware(['auth', 'verified'])->group(function(){
     Route::get('post/create', [PostController::class, 'create'])->name('post.create');
+    Route::delete('post/{post}', [PostController::class, 'destroy'])->name('post.destroy');
     Route::get('my-posts', [PostController::class, 'myPosts'])->name('myPosts');
     Route::post('post', [PostController::class, 'store'])->name('post.store');
     Route::post('follow/{user}', [FollowController::class, 'followUnfollow'])->name('follow');

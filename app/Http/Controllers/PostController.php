@@ -91,7 +91,13 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        if ($post->user_id !== Auth::id()) {
+            abort(403);
+        }
+        
+        $post->clearMediaCollection();
+        $post->delete();
+        return to_route('dashboard');
     }
 
     public function category(Category $category)

@@ -25,7 +25,22 @@
                         </div>
                     </div>
 
-                    {{-- <div class="mt-4"></div> --}}
+                    @if ($post->user->id === Auth::id())
+                        <div class="mt-8 py-4 border-t border-gray-200">
+                            <x-primary-button>
+                                Edit Post
+                            </x-primary-button>
+
+                            <form class="inline-block" action="{{ route('post.destroy', $post) }}" method="post"
+                                onsubmit="return confirm('Are you sure you want to delete this post?')">
+                                @csrf
+                                @method('delete')
+                                <x-danger-button>
+                                    Delete Post
+                                </x-danger-button>
+                            </form>
+                        </div>
+                    @endif
 
                     <x-clap :post="$post" />
 

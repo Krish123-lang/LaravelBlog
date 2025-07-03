@@ -17,7 +17,7 @@
         @csrf
         @method('patch')
 
-        {{-- @if ($user->getFirstMedia('avatar')) --}}
+        {{-- @if ($user->getFirstMedia('avatar')) ---> Use this to be extra safe --}}
         {{-- @if ($user->image) --}}
         @if ($user->imageUrl())
             <div>
