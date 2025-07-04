@@ -15,10 +15,24 @@ class PostController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         $user = auth()->user();
         $query = Post::with(['user', 'media'])->withCount('claps')->latest();
+
+        // $search=$request['search'] ?? '';
+        // if($search != null){
+        //     $posts=Post::where('title', '=', $search)->get();
+        // }
+
+        $search = $request->input('search', '');
+        if ($search) {
+            // $query->where('title', 'like', "%{$search}%");
+            $query->where(function($q) use ($search) {
+                $q->where('title', 'like', "%{$search}%")
+                  ->orWhere('content', 'like', "%{$search}%");
+            });
+        }
 
         /* If you uncomment these codes, then you will see nothing in the home page unless you follow any user.
         And If you follow the user then, you will start seeing only their post, not others whom you have not
@@ -29,8 +43,8 @@ class PostController extends Controller
         //     $query->whereIn('user_id', $ids);
         // }
 
-        $posts = $query->simplePaginate(10);
-        return view('post.index', compact('posts'));
+        $posts = $query->simplePaginate(10)->appends(['search' => $search]);
+        return view('post.index', compact('posts', 'search'));
     }
 
     /**

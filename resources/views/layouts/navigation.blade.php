@@ -18,7 +18,13 @@
                 </div>
             </div>
 
-            <div class="flex">
+            <div class="flex gap-2">
+                <form class="max-w-sm mx-auto flex gap-3 justify-center items-center" action="{{ route('dashboard') }}" method="get">
+                    <div class="">
+                        <input type="search" name="search" id="search" value="{{$search ?? ''}}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search..."/>
+                    </div>
+                </form>
+
                 <a href="{{ route('post.create') }}" class="flex items-center">
                     <x-primary-button>
                         Create post
