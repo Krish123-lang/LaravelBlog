@@ -48,7 +48,7 @@
                         <img src="{{$post->imageUrl()}}" alt="{{$post->title}}" class="w-full">
 
                         <div class="mt-4">
-                            <p>{{$post->content}}</p>
+                            <p>{!! $post->content !!}</p>
                         </div>
                     </div>
 

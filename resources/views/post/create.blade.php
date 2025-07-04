@@ -31,7 +31,7 @@
                         {{-- Content --}}
                         <div class="mt-4">
                             <x-input-label for="title" :value="__('Content')" />
-                            <x-text-inputarea id="content" class="block mt-1 w-full"  name="content" id="content"  autofocus > {{-- :value="old('content')" --}} {{old('content')}}</x-text-inputarea>
+                            <x-text-inputarea id="content" class="block mt-1 w-full"  name="content" id="content"  autofocus > {{-- :value="old('content')" --}} {{old('content')}}</x-text-inputarea> {{-- class="editor" --}}
                             <x-input-error :messages="$errors->get('content')" class="mt-2" />
                         </div>
 
@@ -62,4 +62,37 @@
             </div>
         </div>
     </div>
+
+    {{-- Commented because it arised frontend bugs --}}
+
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/7.9.1/tinymce.min.js" integrity="sha512-09JpfVm/UE1F4k8kcVUooRJAxVMSfw/NIslGlWE/FGXb2uRO1Nt4BXAJ3LxPqNbO3Hccdu46qaBPp9wVpWAVhA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> --}}
+
+    {{-- <script>
+        tinymce.init({
+            selector:'.editor',
+
+            height: '500px',
+            plugins: 'link code image textcolor codesample',
+            codesample_languages: [
+                {text: 'HTML/XML', value: 'markup'},
+                {text: 'Javascript', value: 'javascript'},
+                {text: 'CSS', value: 'css'},
+                {text: 'PHP', value: 'php'},
+                {text: 'Ruby', value: 'ruby'},
+                {text: 'Python', value: 'python'},
+                {text: 'Java', value: 'java'},
+                {text: 'C', value: 'c'},
+                {text: 'C#', value: 'csharp'},
+                {text: 'C++', value: 'cpp'},
+            ],
+
+            toolbar: [
+                "fontselect | bullist numlist outdent indent | undo redo | fontsizeselect | styleselect | bold italic | link image", "codesample",
+                "alignleft aligncenter alignright Justify | forecolor backcolor", "fullscreen"
+            ],
+
+            fontsize_formats: '8pt 10pt 12pt 14pt 18pt 24pt 36pt',
+            font_formats: 'Arial=arial, helvetica, sans-serif;Courier New=courier new, courier,monospace;AkrutiKndPadmini=Akpdmi-n',
+        });
+    </script> --}}
 </x-app-layout>
