@@ -1,4 +1,4 @@
-# Laravel/Tailwind Blog 🚀
+# Laravel/Tailwind Blog
 
 A modern, full-featured blogging platform built with **Laravel** and **Tailwind CSS**.
 Clean, scalable, and production-ready—designed with best practices in mind.
@@ -59,7 +59,7 @@ And much more ...
 
 ---
 
-## ⚙️ Features
+## Features
 
 - Complete **CRUD** for posts: create, read, update, delete  
 - Authentication-managed admin panel  
@@ -72,7 +72,7 @@ And much more ...
 
 ---
 
-## 🔧 Tech Stack
+## Tech Stack
 
 | Technology      | Purpose                                          |
 |-----------------|--------------------------------------------------|
@@ -83,7 +83,7 @@ And much more ...
 
 ---
 
-## 🚀 Quick Start (Local)
+## Quick Start (Local)
 
 1. **Clone & Install**  
    ```bash
@@ -161,6 +161,3 @@ Email: krishna.helloworld@gmail.com, mandalkrishna739@gmail.com
 ![Made with Laravel](https://img.shields.io/badge/Made%20with-Laravel-red?style=flat&logo=laravel)
 ![Open in Visual Studio Code](https://img.shields.io/badge/VSCode-Ready-blue?style=flat&logo=visualstudiocode)
 ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat&logo=github)
-
-
-
