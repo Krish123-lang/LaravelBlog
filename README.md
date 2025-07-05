@@ -5,8 +5,57 @@ Clean, scalable, and production-ready—designed with best practices in mind.
 
 ---
 
-## 🔍 Demo & Screenshots
+## Screenshots
 
+* Guest Home Page
+
+![image](https://github.com/user-attachments/assets/53c0e0c3-255f-410a-b2c6-dfc05ecf90c3)
+
+---
+
+* User Register Page
+
+![image](https://github.com/user-attachments/assets/4a77a1d5-7861-4459-a5e8-5f65c6bfe977)
+
+---
+
+* Mailpit Email Verification
+
+![image](https://github.com/user-attachments/assets/953abfc9-8c55-48e5-8870-c11da8748c00)
+
+---
+
+* Verified user showing in terminal
+
+![image](https://github.com/user-attachments/assets/46ee7c80-195b-4712-a027-60698c00082d)
+
+---
+
+* Filtering Posts by Categories
+
+![image](https://github.com/user-attachments/assets/6ae73465-a5be-4d57-8bd8-908a733f8d75)
+
+---
+
+* Creating a post
+
+![image](https://github.com/user-attachments/assets/7bc90911-f39b-4d0f-976a-c5cfb7622631)
+
+---
+
+* Post Details Page
+
+![image](https://github.com/user-attachments/assets/8ecef636-f9ff-423c-8485-a1db6f467574)
+
+---
+
+* Profile Update page
+
+![image](https://github.com/user-attachments/assets/938e0536-cf18-41a4-a8d5-263469f524bb)
+
+---
+
+And much more ...
 
 ---
 
@@ -27,7 +76,7 @@ Clean, scalable, and production-ready—designed with best practices in mind.
 
 | Technology      | Purpose                                          |
 |-----------------|--------------------------------------------------|
-| Laravel (v12+)  | Backend, routing, authentication, ORM, Blade     |
+| Laravel (v12)  | Backend, routing, authentication, ORM, Blade     |
 | Tailwind CSS    | Utility-first CSS framework for styling          |
 | MySQL  | Primary database                                |
 | Alpine.js | Lightweight interactivity         |
@@ -92,8 +141,10 @@ Clean, scalable, and production-ready—designed with best practices in mind.
 
 ## Author
 Krishna Mandal
+
 Location: Biratnagar, Nepal
-Email: krishna.helloworld@gmail.com
+
+Email: krishna.helloworld@gmail.com, mandalkrishna739@gmail.com
 
 ---
 
